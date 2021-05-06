@@ -8,7 +8,7 @@ module "ssh-key" {
 }
 
 resource "azurerm_kubernetes_cluster" "main" {
-  name                    = "${var.prefix}-aks"
+  name                    = var.cluster_name
   kubernetes_version      = var.kubernetes_version
   location                = data.azurerm_resource_group.main.location
   resource_group_name     = data.azurerm_resource_group.main.name

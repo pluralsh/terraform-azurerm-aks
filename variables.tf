@@ -8,6 +8,11 @@ variable "prefix" {
   type        = string
 }
 
+variable "cluster_name" {
+  description = "the name to give the AKS cluster resource"
+  type = string
+}
+
 variable "client_id" {
   description = "(Optional) The Client ID (appId) for the Service Principal used for the AKS deployment"
   type        = string
