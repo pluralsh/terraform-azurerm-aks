@@ -43,6 +43,7 @@ resource "azurerm_kubernetes_cluster" "main" {
       type                  = var.agents_type
       tags                  = merge(var.tags, var.agents_tags)
       max_pods              = var.agents_max_pods
+      os_disk_type          = var.os_disk_type
     }
   }
 
@@ -63,6 +64,7 @@ resource "azurerm_kubernetes_cluster" "main" {
       type                  = var.agents_type
       tags                  = merge(var.tags, var.agents_tags)
       max_pods              = var.agents_max_pods
+      os_disk_type          = var.os_disk_type
     }
   }
 
