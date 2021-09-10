@@ -139,6 +139,12 @@ variable "rbac_aad_managed" {
   default     = false
 }
 
+variable "rbac_aad_enabled" {
+  description = "Is the Azure Active Directory integration enabled"
+  type        = bool
+  default     = false
+}
+
 variable "rbac_aad_admin_group_object_ids" {
   description = "Object ID of groups with admin access."
   type        = list(string)

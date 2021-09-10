@@ -106,7 +106,7 @@ resource "azurerm_kubernetes_cluster" "main" {
     enabled = var.enable_role_based_access_control
 
     dynamic "azure_active_directory" {
-      for_each = var.enable_role_based_access_control && var.rbac_aad_managed ? ["rbac"] : []
+      for_each = var.enable_role_based_access_control && var.rbac_aad_enabled && var.rbac_aad_managed ? ["rbac"] : []
       content {
         managed                = true
         admin_group_object_ids = var.rbac_aad_admin_group_object_ids
@@ -115,7 +115,7 @@ resource "azurerm_kubernetes_cluster" "main" {
     }
 
     dynamic "azure_active_directory" {
-      for_each = var.enable_role_based_access_control && !var.rbac_aad_managed ? ["rbac"] : []
+      for_each = var.enable_role_based_access_control && var.rbac_aad_enabled && !var.rbac_aad_managed ? ["rbac"] : []
       content {
         managed           = false
         client_app_id     = var.rbac_aad_client_app_id
