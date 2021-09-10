@@ -127,6 +127,12 @@ variable "enable_role_based_access_control" {
   default     = false
 }
 
+variable "azure_rbac_enabled" {
+  description = "Enable Azure AD Role Based Access Control."
+  type        = bool
+  default     = false
+}
+
 variable "rbac_aad_managed" {
   description = "Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration."
   type        = bool
