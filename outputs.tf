@@ -14,6 +14,19 @@ output "host" {
   value = azurerm_kubernetes_cluster.main.kube_config[0].host
 }
 
+output "cluster_raw" {
+  sensitive = true
+  value = azurerm_kubernetes_cluster.main
+}
+
+output "cluster_name" {
+  value = azurerm_kubernetes_cluster.main.name
+}
+
+output "resource_group_name" {
+  value = azurerm_kubernetes_cluster.main.resource_group_name
+}
+
 output "username" {
   value = azurerm_kubernetes_cluster.main.kube_config[0].username
 }
