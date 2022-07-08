@@ -79,6 +79,12 @@ resource "azurerm_kubernetes_cluster" "main" {
     }
   }
 
+  lifecycle {
+    ignore_changes = [
+      default_node_pool,
+    ]
+  }
+
   dynamic "service_principal" {
     for_each = var.client_id != "" && var.client_secret != "" ? ["service_principal"] : []
     content {
