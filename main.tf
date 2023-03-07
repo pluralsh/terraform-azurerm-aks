@@ -138,6 +138,28 @@ resource "azurerm_kubernetes_cluster" "main" {
       zones                        = var.agents_availability_zones
     }
   }
+
+  lifecycle {
+    ignore_changes = [
+      default_node_pool[0].name,
+      default_node_pool[0].vm_size,
+      default_node_pool[0].os_disk_size_gb,
+      default_node_pool[0].os_disk_type,
+      default_node_pool[0].capacity_reservation_group_id,
+      default_node_pool[0].enable_node_public_ip,
+      default_node_pool[0].fips_enabled,
+      default_node_pool[0].max_pods,
+      # default_node_pool[0].message_of_the_day,
+      default_node_pool[0].node_public_ip_prefix_id,
+      default_node_pool[0].only_critical_addons_enabled,
+      default_node_pool[0].os_sku,
+      default_node_pool[0].pod_subnet_id,
+      # default_node_pool[0].scale_down_mode,
+      default_node_pool[0].vnet_subnet_id,
+      default_node_pool[0].zones,
+    ]
+  }
+
   dynamic "aci_connector_linux" {
     for_each = var.aci_connector_linux_enabled ? ["aci_connector_linux"] : []
 

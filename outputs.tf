@@ -59,6 +59,15 @@ output "azure_policy_enabled" {
   value       = azurerm_kubernetes_cluster.main.azure_policy_enabled
 }
 
+output "cluster_raw" {
+  sensitive = true
+  value = azurerm_kubernetes_cluster.main
+}
+
+output "resource_group_name" {
+  value = azurerm_kubernetes_cluster.main.resource_group_name
+}
+
 output "azurerm_log_analytics_workspace_id" {
   description = "The id of the created Log Analytics workspace"
   value       = try(azurerm_log_analytics_workspace.main[0].id, null)
